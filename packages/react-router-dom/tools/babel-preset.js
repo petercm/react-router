@@ -1,11 +1,9 @@
-const buildPreset = require('babel-preset-es2015').buildPreset
-
 const BABEL_ENV = process.env.BABEL_ENV
 const building = BABEL_ENV != undefined && BABEL_ENV !== 'cjs'
 
 const plugins = []
 
-if (building) {
+if (BABEL_ENV === 'umd') {
   plugins.push('external-helpers')
 }
 
